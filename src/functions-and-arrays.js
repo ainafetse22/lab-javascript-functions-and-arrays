@@ -1,34 +1,124 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(num1,num2) {
+  let maxNum=num2;
+  
+  if((typeof(num1)!="number") || (typeof(num1)!="number"))
+    return null; 
+  
+  if(num1>num2)
+    maxNum= num1;
+  return maxNum;
+  
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
-
+function findLongestWord(wordsArray) { 
+  let longWord; 
+  
+  if(!wordsArray)
+    {
+      return null;}
+  else if (!Array.isArray(wordsArray))
+        { console.log(!wordsArray.isArray);
+        
+      return null;}
+  else if(wordsArray.length===0 )
+       {
+      return null;}
+  else{
+      longWord=wordsArray[0]
+      wordsArray.forEach((word)  =>{
+        if(word.length>longWord.length)
+        {longWord=word;
+        }
+    });
+    return longWord;
+  }
+}
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(number) {
+  let numberResults=0;
+    if(!number)
+    {return numberResults;}
+    else if (!Array.isArray(number))
+    { 
+         return numberResults;}
+    else if(number.length===0 )
+    {
+        return numberResults;}
+    number.forEach((num)=>{
+     numberResults+=num;              
+                   });
+    return numberResults;
+    
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(arrayEntry) {
+  let numberResults=0;
+  let mathError=false;
+  if(!arrayEntry)
+     return numberResults;
+  else if(!Array.isArray(arrayEntry)){
+    return numberResults;
+  }
+  else if(arrayEntry.length===0 )
+  {
+    return numberResults;}
+  
+  arrayEntry.forEach((item)=>{
+    switch(typeof(item)){
+      case "number": numberResults+=item
+        break;
+      case "string": numberResults+=item.length;       
+        break;
+      case "boolean": if(item)
+                        numberResults+=1;
+                      else
+                        numberResults+=0;
+        break;
+      default:
+        mathError=true;
+            }                 
+                   });
+    if(mathError)
+      throw new Error( "Unsupported data type sir or ma'am");
+    return numberResults;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = ['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'];
 
-function averageNumbers() {}
-
-
+function averageNumbers(arrayEntry) {
+  let averageResult=0;
+  let mathError=false;
+  if(!arrayEntry)
+    return averageResult;
+  else if(arrayEntry.length===0){
+    return null;
+  }
+  arrayEntry.forEach(number=>{
+    switch(typeof(number)){
+      case "number" :averageResult+=number;
+      break;
+      
+      default:
+        mathError=true;
+    }
+    })
+  return averageResult=averageResult/arrayEntry.length;
+  
+}
+console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
