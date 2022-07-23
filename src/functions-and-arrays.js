@@ -122,10 +122,26 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayEntry) {
+    let averageResult=0;
+    let arrayLength=[];
+    let mathError=false;
+      
+    if(!arrayEntry)
+        return averageResult;
+    else if(arrayEntry.length===0)
+        return null;
+    for(i=0;i<=arrayEntry.length-1;i++) {
+      arrayLength.push(arrayEntry[i].length);
+    };
+    averageResult =averageNumbers(arrayLength);
+    return averageResult;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -142,14 +158,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArr) {
+  if(!wordsArr)
+        return null;
+    else if(wordsArr.length===0)
+        return null;
+  const unique = wordsArr.filter((element, index) => {
+    return wordsArr.indexOf(element) === index;
+  });
+  return unique;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArr,search) {
+  if(!wordsArr)
+        return null;
+    else if(wordsArr.length===0)
+        return null;
+  return wordsArr.includes(search);
+    
+
+}
 
 
 
@@ -168,9 +201,26 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordComp, wordsearch) {
+  let wordCount=0;
+  if(!wordComp)
+    return wordCount;
+  else if(wordComp.length===0)
+    return wordCount;
 
+    console.log("AQUIIII:")
+    console.log(wordsearch);
+    wordComp.forEach(element=>{
+      console.log(element);
+      if(element === wordsearch)
+      wordCount+=1;
+      
+      console.log(wordCount);
+  })
+  return wordCount;
+}
 
+howManyTimes(wordsCount,'machine')
 
 // Iteration #8: Bonus
 const matrix = [
